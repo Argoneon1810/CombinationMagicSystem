@@ -9,17 +9,17 @@ using UnityEngine.UI;
 /// </summary>
 public class RadialUIPolygon : Graphic
 {
+    public RectTransform getSizeFrom;
+
     [Range(3, 32)] public int verticeCount = 3;
     [Range(0, 360)] public int rotation = 0;
     public List<float> verticeDistances = new List<float> { 1, 1, 1 };
 
     int rotation_old = 0;
-    protected RectTransform rt;
 
     protected override void Start()
     {
         base.Start();
-        rt = transform as RectTransform;
         NotifyValueChanged();
     }
 
@@ -30,7 +30,7 @@ public class RadialUIPolygon : Graphic
 
         UIVertex vertex = UIVertex.simpleVert;
 
-        float radius = Mathf.Min(rt.sizeDelta.x, rt.sizeDelta.y) / 2;
+        float radius = Mathf.Min(getSizeFrom.sizeDelta.x, getSizeFrom.sizeDelta.y) / 2;
         float theta = 360.0f / verticeCount;
 
         vertex.position = Vector3.zero;

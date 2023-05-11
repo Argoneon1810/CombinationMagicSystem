@@ -13,7 +13,7 @@ public class StatGUI : RadialUIPolygon
     {
         base.OnPopulateMesh(vh);
 
-        float radius = Mathf.Min(rt.sizeDelta.x, rt.sizeDelta.y) / 2;
+        float radius = Mathf.Min(getSizeFrom.sizeDelta.x, getSizeFrom.sizeDelta.y) / 2;
         float theta = 360.0f / verticeCount;
 
         for (int i = 0; i < verticeCount; ++i)
@@ -38,7 +38,7 @@ public class StatGUI : RadialUIPolygon
             for (int i = 0; i < diff; ++i)
             {
                 GameObject t = Instantiate(LabelPrefab);
-                t.transform.SetParent(rt, false);
+                t.transform.SetParent(getSizeFrom, false);
                 labels.Add(t.GetComponent<TextMeshProUGUI>());
             }
         }
