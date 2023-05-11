@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9ac8b31d92252d6409409fec462996f7, type: 3}
   m_Name: Doubt
-  m_EditorClassIdentifier: Assembly-CSharp::DamageRandomnessStatElement
+  m_EditorClassIdentifier: 
   statName: Doubt
   delayPoint: 1
   failPoint: -2

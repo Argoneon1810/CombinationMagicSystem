@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9be763ba7a49325448072e0fa723bd2b, type: 3}
   m_Name: Insight
-  m_EditorClassIdentifier: Assembly-CSharp::CostRedusiveStatElement
+  m_EditorClassIdentifier: 
   statName: Insight
   delayPoint: -1
   failPoint: 0

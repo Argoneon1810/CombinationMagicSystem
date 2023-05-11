@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0c3b3f0e1d48de34091ae3ebdcb6ae5e, type: 3}
   m_Name: Calm
-  m_EditorClassIdentifier: Assembly-CSharp::MaxDamageAdditiveStatElement
+  m_EditorClassIdentifier: 
   statName: Calm
   delayPoint: 0
   failPoint: -1

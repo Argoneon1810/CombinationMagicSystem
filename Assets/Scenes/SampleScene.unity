@@ -681,11 +681,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statElements:
-  - {fileID: 11400000, guid: f447b53c64f4d5b47a91b7f53333eb03, type: 2}
-  - {fileID: 11400000, guid: dce918c207bd7d744bef43b2379e2583, type: 2}
-  - {fileID: 11400000, guid: b417cc41c6f8af14ea9e5b1f22506a3c, type: 2}
-  - {fileID: 11400000, guid: 68a1b2d40a982914693ecd4470c717a9, type: 2}
-  - {fileID: 11400000, guid: a520eb550fb5df048900ae2d78dfcec3, type: 2}
+  - {fileID: 11400000, guid: cfaec6c51af802243b0f09e402d9fdc9, type: 2}
+  - {fileID: 11400000, guid: 9863a6245d42e5545af7e170a42296d6, type: 2}
+  - {fileID: 11400000, guid: 449d74896236026448bcd7056c002595, type: 2}
+  - {fileID: 11400000, guid: 649bc6f60e8848745926bb1b8b0aa7c8, type: 2}
+  - {fileID: 11400000, guid: ce897021bdf46b24aa99190ffee1b84e, type: 2}
   progressableStatElements: []
 --- !u!114 &865117379
 MonoBehaviour:
