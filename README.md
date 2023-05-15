@@ -3,7 +3,7 @@
 
 바텀업 방식의 마법이란 마법이 완성된 형태로 제공되는 것이 아니라 마법의 구성자를 제공하고 플레이어가 자유롭게 조합할 수 있도록 하여 플레이어가 마법을 완성하는 것을 말합니다.
 
-상세한 내용은 [Assets/ReadMe.md](Assets/ReadMe.md) 을 확인해 주세요.
+구상 계획에 대한 상세한 내용은 [Assets/ReadMe.md](Assets/ReadMe.md) 을 확인해 주세요.
 
 # Demo
 ## Radial Stat Pannel
