@@ -7,10 +7,20 @@ public class StatVisualizer : MonoBehaviour
     [SerializeField] private StatGUI rup;
 
     public bool normalize = true;
+    private bool normalize_old = true;
 
     private void Start()
     {
         stats.ValueChangeCallback += FeedRadialUI;
+    }
+
+    private void Update()
+    {
+        if(normalize != normalize_old)
+        {
+            normalize_old = normalize;
+            FeedRadialUI();
+        }
     }
 
     void FeedRadialUI()
@@ -35,7 +45,12 @@ public class StatVisualizer : MonoBehaviour
                 max = stat.Second;
         }
         for (int i = 0; i < statsPairArray.Length; ++i)
-            statsPairArray[i].Second /= max;
+        {
+            if (statsPairArray[i].Second > 0)
+                statsPairArray[i].Second /= max;
+            else
+                statsPairArray[i].Second = 0;
+        }
         return statsPairArray;
     }
 

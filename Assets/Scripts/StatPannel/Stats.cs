@@ -28,6 +28,8 @@ public class Stats : MonoBehaviour
     [SerializeField]
     private List<ProgressableStatElement> progressableStatElements = new List<ProgressableStatElement>();
 
+    private List<Thread> observerThreads = new List<Thread>();
+
     [ExecuteAlways]
     private void Start()
     {
@@ -36,9 +38,25 @@ public class Stats : MonoBehaviour
         {
             statElement = new ProgressableStatElement(elem);
             progressableStatElements.Add(statElement);
-            StartObserver(statElement);
+            observerThreads.Add(StartObserver(statElement));
         }
         OnValueChanged();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        foreach(Thread thread in observerThreads)
+        {
+            if (pause) thread.Suspend();
+            else thread.Resume();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach(Thread thread in observerThreads)
+            thread.Abort();
+        observerThreads.Clear();
     }
 
     public Pair<string, float>[] GetStats()
@@ -58,9 +76,9 @@ public class Stats : MonoBehaviour
         return null;
     }
 
-    void StartObserver(ProgressableStatElement elem)
+    Thread StartObserver(ProgressableStatElement elem)
     {
-        new Thread(delegate () {
+        Thread thread = new Thread(delegate () {
             float value_old = elem.Progress;
             while (true)
             {
@@ -72,7 +90,9 @@ public class Stats : MonoBehaviour
                     UnityMainThreadDispatcher.Instance().Enqueue(() => OnValueChanged());
                 }
             }
-        }).Start();
+        });
+        thread.Start();
+        return thread;
     }
 
     public void OnValueChanged() => ValueChangeCallback?.Invoke();
