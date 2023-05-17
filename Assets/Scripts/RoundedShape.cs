@@ -24,7 +24,8 @@ public class RoundedShape : Graphic
     public float InnerExtentRadius => innerExtentRadius <= 0 ? 0 : innerExtentRadius;
     public float OuterExtentRadius => outerExtentRadius <= 0 ? 0 : outerExtentRadius;
 
-    public float radius_multiplier = 1.414f, gizmos_radius_multiplier, extentMultiplier;
+    [Range(0, 8)]
+    public float radiusMultiplier = 1.414f, extentMultiplier = 1;
 
     protected override void Awake()
     {
@@ -49,7 +50,7 @@ public class RoundedShape : Graphic
 
         Vector3[] corners = new Vector3[vertices];
         for (int i = 0; i < vertices; ++i)
-            corners[i] = center + (Quaternion.Euler(0, 0, theta * i - rotation) * Vector3.up) * radius * radius_multiplier;
+            corners[i] = center + (Quaternion.Euler(0, 0, theta * i - rotation) * Vector3.up) * radius * radiusMultiplier;
 
         int extentVertices = vertices * extentResolution;
         Vector3[] innerExtent = new Vector3[extentVertices];
@@ -82,9 +83,9 @@ public class RoundedShape : Graphic
 
         vertex.position = center;
         vh.AddVert(vertex);
-        for(int i = 0; i < extentVertices-1; i+=2)
-            vh.AddTriangle(extentVertices_double-1, i, i+2);
-        vh.AddTriangle(extentVertices_double-1, extentVertices_double-5, extentVertices_double-3);
+        for (int i = 0; i < extentVertices_double - 1; i += 2)
+            vh.AddTriangle(extentVertices_double, i, i + 2);
+        vh.AddTriangle(extentVertices_double, extentVertices_double - 2, 0);
     }
 
     void Calc(
