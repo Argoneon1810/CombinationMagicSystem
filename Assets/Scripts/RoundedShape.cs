@@ -73,19 +73,19 @@ public class RoundedShape : Graphic
         int extentVertices_double = extentVertices * 2;
         for (int i = 0; i < extentVertices_double-2; i += 2)
         {
-            vh.AddTriangle(i, i + 1, i + 3);
-            vh.AddTriangle(i, i + 3, i + 2);
+            vh.AddTriangle(i, i + 3, i + 1);
+            vh.AddTriangle(i, i + 2, i + 3);
         }
-        vh.AddTriangle(extentVertices_double-2, extentVertices_double - 1, 1);
-        vh.AddTriangle(extentVertices_double-2, 1, 0);
+        vh.AddTriangle(extentVertices_double-2, 1, extentVertices_double - 1);
+        vh.AddTriangle(extentVertices_double-2, 0, 1);
 
         if (!fill) return;
 
         vertex.position = center;
         vh.AddVert(vertex);
         for (int i = 0; i < extentVertices_double - 1; i += 2)
-            vh.AddTriangle(extentVertices_double, i, i + 2);
-        vh.AddTriangle(extentVertices_double, extentVertices_double - 2, 0);
+            vh.AddTriangle(extentVertices_double, i + 2, i);
+        vh.AddTriangle(extentVertices_double, 0, extentVertices_double - 2);
     }
 
     void Calc(
